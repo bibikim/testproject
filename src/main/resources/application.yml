@@ -1,0 +1,44 @@
+# server port
+# web.xml
+# session(1800 seconds = 30 minutes)
+
+server:
+  port: 9090
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true          
+    session:   
+      timeout: 1800     
+
+# servlet-context.xml
+# database connection
+# email
+
+spring:
+
+  web:
+    resources:
+      static-locations: /resources/**
+      
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/prac?serverTimezone=Asia/Seoul
+      username: root
+      password: 1111      
+      
+  output:
+    ansi:
+      enabled: always
+      
+# mybatis
+mybatis:
+  config-location: mybatis/config/mybatis-config.xml
+  mapper-locations: mybatis/mapper/*.xml
